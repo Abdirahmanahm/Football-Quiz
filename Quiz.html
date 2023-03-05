@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football</title>
+    <style> 
+    #question{
+        background-color: orange;border: solid;border-radius: 10px;width: 60%;height: 10vh;
+        margin-top: 20px; padding-top: 20px;
+    }
+    #option1{
+        background-color: palegreen; width: 50%;height: 8vh;border: solid;border-radius: 10px;
+        margin-top: 20px; padding-top: 20px;
+    }
+    #option2{
+        background-color: palegreen; width: 50%;height: 8vh;border: solid;border-radius: 10px;
+        margin-top: 20px; padding-top: 20px;
+    }
+    #option3{
+        background-color: palegreen; width: 50%;height: 8vh;border: solid;border-radius: 10px;
+        margin-top: 20px;  padding-top: 20px;
+    }
+    button{
+        background-color: saddlebrown;font-size: large;text-align: center;color: wheat;
+    }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Quiz on Football</h1>
+    <img src="https://wallpapercave.com/wp/wp7675338.jpg" height="250px">
+    <p id="scoreboard" >Score</p>
+    
+    <div id="question"></div>
+    <div onclick="checkAnswers(this)" id="option1"></div>
+    <div onclick="checkAnswers(this)" id="option2"></div>
+    <div onclick="checkAnswers(this)" id="option3"></div>
+   <br> <button onclick="changeQuestion()">Next question</button>
+    </center>
+    
+    
+    <script>
+        let score=0
+        mcq=[
+            question1={
+                que:"Who won the World Cup 2022?",
+                opt1:"Portugal",
+                opt2:"Argentina",
+                opt3:"France",
+                cop:"Argentina",
+            },
+            question2={
+                que:"Which club has won the Most UEFA Champions Leagues?",
+                opt1:"Barcelona",
+                opt2:"Milan",
+                opt3:"Real Madrid",
+                cop:"Real Madrid",
+            },
+            question3={
+                que:"In the last 20 Years, What team has won the most trophies in England?",
+                opt1:"Chelsea",
+                opt2:"Man City",
+                opt3:"Man Utd",
+                cop:"Chelsea",
+            },
+            question4={
+               que:"Which player has won the most Ballon D'ors?",
+               opt1:"Messi",
+               opt2:"Ronaldo",
+               opt3:"Ronaldinho",
+               cop:"Messi",
+               
+            },
+            question5={
+                que:"Who was the first country to win the World Cup?",
+                opt1:"Uruguay",
+                opt2:"Brazil",
+                opt3:"Argentina",
+                cop:"Uruguay",
+            },
+        ]
+        let i=0
+        document.getElementById("question").innerText=mcq[i].que
+        document.getElementById("option1").innerText=mcq[i].opt1
+        document.getElementById("option2").innerText=mcq[i].opt2
+        document.getElementById("option3").innerText=mcq[i].opt3
+        function changeQuestion(){
+        i=i+1
+        document.getElementById("option1").style.backgroundColor="palegreen"
+        document.getElementById("option2").style.backgroundColor="palegreen"
+        document.getElementById("option3").style.backgroundColor="palegreen"
+        document.getElementById("question").innerText=mcq[i].que
+        document.getElementById("option1").innerText=mcq[i].opt1
+        document.getElementById("option2").innerText=mcq[i].opt2
+        document.getElementById("option3").innerText=mcq[i].opt3
+        }        
+        function checkAnswers(clickedOption){
+            if(clickedOption.innerText==mcq[i].cop){
+                clickedOption.style.backgroundColor="green"
+                score=score+1
+                document.getElementById("scoreboard").innerText=score
+            }
+            else{
+                clickedOption.style.backgroundColor="red"
+            }
+        }
+    </script>
+</body>
+</html>
